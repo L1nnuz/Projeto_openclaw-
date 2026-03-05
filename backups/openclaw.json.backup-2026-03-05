@@ -1,0 +1,158 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.2",
+    "lastTouchedAt": "2026-03-05T19:22:36.624Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-05T16:40:34.218Z",
+    "lastRunVersion": "2026.3.2",
+    "lastRunCommand": "configure",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "openai-codex:default": {
+        "provider": "openai-codex",
+        "mode": "oauth"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openai-codex/gpt-5.3-codex"
+      },
+      "workspace": "/home/horuz/.openclaw/workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    }
+  },
+  "tools": {
+    "profile": "full",
+    "web": {
+      "search": {
+        "enabled": true,
+        "apiKey": "sk-crTt0NeCapVN7u0tf8Wnew8zbBZot9zq8zHoawHtRoPMn5i6"
+      },
+      "fetch": {
+        "enabled": true
+      }
+    },
+    "media": {
+      "audio": {
+        "enabled": true,
+        "models": [
+          {
+            "type": "cli",
+            "command": "/home/horuz/.openclaw/workspace/scripts/stt_faster.py",
+            "args": [
+              "{{MediaPath}}"
+            ],
+            "timeoutSeconds": 180
+          }
+        ]
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions",
+    "tts": {
+      "auto": "always",
+      "provider": "elevenlabs",
+      "elevenlabs": {
+        "modelId": "eleven_multilingual_v2",
+        "applyTextNormalization": "on",
+        "languageCode": "pt-BR"
+      }
+    }
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md": {
+          "enabled": true
+        },
+        "bootstrap-extra-files": {
+          "enabled": true
+        },
+        "command-logger": {
+          "enabled": true
+        },
+        "session-memory": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "botToken": "8588650411:AAGe306OwtIv5IKXnuru0VRJr8lgsGOzg5o",
+      "allowFrom": [
+        "6624882567"
+      ],
+      "groupAllowFrom": [
+        "6624882567"
+      ],
+      "groupPolicy": "allowlist",
+      "streaming": "partial"
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "2e2a3e68dc4d7889b531b15216b7f6cba0c0a315a0e065b6"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "remote": {
+      "token": "2e2a3e68dc4d7889b531b15216b7f6cba0c0a315a0e065b6"
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "contacts.add",
+        "calendar.add",
+        "reminders.add",
+        "sms.send"
+      ]
+    }
+  },
+  "skills": {
+    "entries": {
+      "sag": {
+        "apiKey": "c658e91345ad0896044139e69f0a79193c74ca554f6b8ce6cc81731d25bdd254"
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "telegram": {
+        "enabled": true
+      }
+    }
+  }
+}
