@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Relatório Detalhado dos Arquivos .md — v1</title>
+  <meta name="description" content="Relatório profissional com síntese detalhada dos arquivos .md do workspace Alicestudio/OpenClaw." />
+  <style>
+    :root {
+      --bg:#0a1220; --surface:#121f35; --surface-2:#1a2d4b; --line:#2c4168;
+      --text:#eaf1ff; --muted:#9eb2d6; --primary:#7aa2ff; --ok:#59d79b; --warn:#ffcc70;
+      --r:14px; --s1:8px; --s2:16px; --s3:24px; --s4:32px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:radial-gradient(1200px 760px at 95% -20%,#24457f,var(--bg) 60%);line-height:1.5}
+    .wrap{width:min(1220px,92vw);margin:0 auto;padding:var(--s4) 0 60px}
+    .hero{display:grid;grid-template-columns:1fr;gap:var(--s2);margin-bottom:var(--s3)}
+    .card{background:linear-gradient(180deg,var(--surface),#0f1b31);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+    .hero-img{padding:0;overflow:hidden}
+    .hero-img img{display:block;width:100%;height:auto}
+    .eyebrow{font-size:.78rem;color:var(--primary);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin:0 0 8px}
+    h1{margin:0 0 10px;font-size:clamp(1.6rem,3.3vw,2.5rem)}
+    .muted{color:var(--muted)}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .tag{font-size:.78rem;border:1px solid var(--line);background:var(--surface-2);padding:5px 10px;border-radius:999px}
+
+    .kpis{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--s2);margin-bottom:var(--s2)}
+    .kpi{grid-column:span 12;background:linear-gradient(180deg,var(--surface),#0f1b31);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+    .kpi .label{font-size:.8rem;color:var(--muted)}
+    .kpi .value{font-size:1.4rem;font-weight:700}
+
+    .layout{display:grid;grid-template-columns:1fr;gap:var(--s2)}
+    .md-block{display:grid;grid-template-columns:1fr;gap:14px;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:12px;padding:14px}
+    .md-block img{width:100%;border-radius:10px;border:1px solid var(--line)}
+    h2,h3{margin-top:0}
+    ul{margin:0;padding-left:18px}
+    li+li{margin-top:6px}
+
+    .table{width:100%;border-collapse:collapse;font-size:.92rem}
+    .table th,.table td{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left;vertical-align:top}
+    .badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:3px 8px;font-size:.75rem;background:var(--surface-2)}
+    .ok{color:#bdf5dc;border-color:rgba(89,215,155,.5);background:rgba(89,215,155,.13)}
+    .warn{color:#ffe3ad;border-color:rgba(255,204,112,.5);background:rgba(255,204,112,.13)}
+
+    footer{margin-top:var(--s3);border-top:1px solid var(--line);padding-top:var(--s2);color:var(--muted);font-size:.9rem}
+
+    @media (min-width:760px){.kpi{grid-column:span 3}.md-block{grid-template-columns:220px 1fr}}
+    @media (min-width:1080px){.hero{grid-template-columns:1.2fr 1fr}.layout{grid-template-columns:2fr 1fr}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <article class="card">
+        <p class="eyebrow">Relatórios · Inventário Documental</p>
+        <h1>Relatório Detalhado dos Arquivos .md (v1)</h1>
+        <p class="muted">Consolidação técnica e funcional dos principais arquivos Markdown do workspace. O objetivo é dar visão executiva e operacional para manutenção, segurança e continuidade.</p>
+        <div class="tags">
+          <span class="tag">Formato: HTML5 + CSS3</span>
+          <span class="tag">Escopo: Arquivos .md</span>
+          <span class="tag">Estilo: Profissional</span>
+          <span class="tag">Domínio: alicestudio.art</span>
+        </div>
+      </article>
+      <article class="card hero-img"><img src="./assets/hero-ops.svg" alt="Visão executiva de relatório operacional" /></article>
+    </section>
+
+    <section class="kpis" aria-label="KPIs de documentação">
+      <article class="kpi"><div class="label">Arquivos .md analisados</div><div class="value">8</div></article>
+      <article class="kpi"><div class="label">Arquivos de identidade/memória</div><div class="value">4</div></article>
+      <article class="kpi"><div class="label">Arquivos de governança/operação</div><div class="value">4</div></article>
+      <article class="kpi"><div class="label">Risco de documentação</div><div class="value">Baixo</div></article>
+    </section>
+
+    <section class="layout">
+      <article class="card">
+        <h2>Análise detalhada por arquivo</h2>
+
+        <article class="md-block">
+          <img src="./assets/memory.svg" alt="Memória e identidade" />
+          <div>
+            <h3>IDENTITY.md</h3>
+            <ul>
+              <li>Define identidade base da assistente: nome, natureza, vibe e assinatura visual.</li>
+              <li>Importância: mantém consistência de persona entre sessões e canais.</li>
+              <li>Ponto forte: simples, objetivo e fácil de versionar.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="md-block">
+          <img src="./assets/memory.svg" alt="Perfil do usuário e contexto" />
+          <div>
+            <h3>USER.md</h3>
+            <ul>
+              <li>Documenta preferências operacionais do usuário (Deny), idioma e estilo de comunicação.</li>
+              <li>Direciona respostas práticas para troubleshooting e automações OpenClaw.</li>
+              <li>Impacto: reduz ruído e acelera aderência contextual.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="md-block">
+          <img src="./assets/memory.svg" alt="Memória de longo prazo" />
+          <div>
+            <h3>MEMORY.md</h3>
+            <ul>
+              <li>Memória estável com preferências duráveis e baseline técnico.</li>
+              <li>Inclui regra crítica: website solicitado deve ser publicado automaticamente no servidor ativo.</li>
+              <li>Boa prática aplicada: centralização de decisões permanentes.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="md-block">
+          <img src="./assets/infra.svg" alt="Infraestrutura e serviços" />
+          <div>
+            <h3>WEB-SERVER.md</h3>
+            <ul>
+              <li>Inventário completo da stack web (Nginx, PHP-FPM, MariaDB, phpMyAdmin) e portas.</li>
+              <li>Registra hardening, status de SSL e regras de acesso.</li>
+              <li><strong>Nota de segurança:</strong> credenciais sensíveis devem permanecer mascaradas em relatórios públicos.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="md-block">
+          <img src="./assets/security.svg" alt="Governança e limites operacionais" />
+          <div>
+            <h3>AGENTS.md</h3>
+            <ul>
+              <li>Arquivo de governança: rotina por sessão, políticas de memória, limites de ação e etiqueta em grupos.</li>
+              <li>Define comportamento pró-ativo com controle de segurança.</li>
+              <li>É o documento de operação mais abrangente do workspace.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="md-block">
+          <img src="./assets/security.svg" alt="Princípios de conduta" />
+          <div>
+            <h3>SOUL.md</h3>
+            <ul>
+              <li>Camada de princípios: utilidade real, personalidade, discrição e confiança por competência.</li>
+              <li>Mantém equilíbrio entre eficiência e comportamento seguro.</li>
+              <li>Base de tom e postura para decisões não triviais.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="md-block">
+          <img src="./assets/infra.svg" alt="Notas locais de ferramentas" />
+          <div>
+            <h3>TOOLS.md</h3>
+            <ul>
+              <li>Espaço para inventário local (hosts, câmeras, vozes, dispositivos).</li>
+              <li>Ajuda a separar instruções universais (skills) de detalhes do ambiente específico.</li>
+              <li>Pronto para expansão conforme novas integrações forem sendo adicionadas.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="md-block">
+          <img src="./assets/automation.svg" alt="Heartbeat e automações" />
+          <div>
+            <h3>HEARTBEAT.md</h3>
+            <ul>
+              <li>Atualmente vazio/comentado para evitar chamadas desnecessárias de heartbeat.</li>
+              <li>Funciona como gatilho opcional para rotinas periódicas no canal principal.</li>
+              <li>Mantém custo operacional controlado quando não há demanda ativa.</li>
+            </ul>
+          </div>
+        </article>
+
+        <h3 style="margin-top:22px">Matriz de criticidade documental</h3>
+        <table class="table" aria-label="Criticidade dos arquivos markdown">
+          <thead><tr><th>Arquivo</th><th>Função principal</th><th>Criticidade</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>AGENTS.md</td><td>Governança operacional e segurança comportamental</td><td>Alta</td><td><span class="badge ok">Ativo</span></td></tr>
+            <tr><td>MEMORY.md</td><td>Preferências e decisões duráveis</td><td>Alta</td><td><span class="badge ok">Ativo</span></td></tr>
+            <tr><td>WEB-SERVER.md</td><td>Baseline de infraestrutura web</td><td>Alta</td><td><span class="badge ok">Ativo</span></td></tr>
+            <tr><td>SOUL.md</td><td>Princípios de postura e tom</td><td>Média/Alta</td><td><span class="badge ok">Ativo</span></td></tr>
+            <tr><td>USER.md</td><td>Preferências de comunicação e contexto humano</td><td>Média</td><td><span class="badge ok">Ativo</span></td></tr>
+            <tr><td>IDENTITY.md</td><td>Identidade estável da assistente</td><td>Média</td><td><span class="badge ok">Ativo</span></td></tr>
+            <tr><td>TOOLS.md</td><td>Inventário local de ferramentas</td><td>Média</td><td><span class="badge warn">Parcial</span></td></tr>
+            <tr><td>HEARTBEAT.md</td><td>Rotinas de verificação periódica</td><td>Baixa/Média</td><td><span class="badge ok">Controlado</span></td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <aside class="card">
+        <h2>Resumo executivo</h2>
+        <p class="muted">A documentação .md está consistente e bem organizada para continuidade operacional. A maior recomendação é reforçar higiene de segredos em arquivos técnicos e manter revisões periódicas da memória curada.</p>
+
+        <h3>Recomendações imediatas</h3>
+        <ul>
+          <li>Mascarar credenciais em <code>WEB-SERVER.md</code>.</li>
+          <li>Adicionar changelog resumido por sessão em <code>memory/YYYY-MM-DD.md</code>.</li>
+          <li>Expandir <code>TOOLS.md</code> com aliases/hosts reais já consolidados.</li>
+          <li>Manter auditoria semanal de regras e cron jobs.</li>
+        </ul>
+
+        <h3 style="margin-top:18px">Escopo desta versão</h3>
+        <ul>
+          <li>Leitura consolidada de 8 arquivos .md principais.</li>
+          <li>Apresentação visual no mesmo estilo do dashboard anterior.</li>
+          <li>Detalhamento técnico com foco em operação e governança.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <footer>
+      Relatório v1 detalhado dos arquivos Markdown · HTML5 + CSS3 · Alicestudio Operations.
+    </footer>
+  </main>
+</body>
+</html>
