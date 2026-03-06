@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mocap — Fluxo de Memória da Alice</title>
+  <style>
+    :root{
+      --bg:#0f1115;
+      --card:#171a21;
+      --muted:#9aa4b2;
+      --text:#e6edf3;
+      --accent:#ff4fa3;
+      --accent2:#7c4dff;
+      --ok:#22c55e;
+      --warn:#f59e0b;
+      --line:#2a2f3a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(135deg,var(--bg),#0b0d12);
+      color:var(--text);
+      min-height:100vh;
+      padding:24px;
+    }
+    .wrap{max-width:1100px;margin:0 auto}
+    h1{margin:0 0 8px;font-size:1.6rem}
+    .sub{color:var(--muted);margin-bottom:20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px;
+      box-shadow:0 8px 24px rgba(0,0,0,.25);
+    }
+    .card h3{margin:0 0 8px;font-size:1rem}
+    .tag{display:inline-block;font-size:.75rem;padding:2px 8px;border-radius:999px;background:rgba(255,79,163,.14);color:#ff9ccc;border:1px solid rgba(255,79,163,.35)}
+    .muted{color:var(--muted);font-size:.9rem}
+    .flow{margin-top:18px;padding:16px;border-radius:14px;border:1px dashed var(--line);background:#12151c}
+    .step{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #202633}
+    .step:last-child{border-bottom:none}
+    .dot{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-size:.8rem;font-weight:700}
+    code{background:#0d1117;border:1px solid #2d333b;border-radius:8px;padding:2px 6px;color:#d2a8ff}
+    .ok{color:var(--ok)}
+    .warn{color:var(--warn)}
+    .files{margin-top:16px;display:grid;gap:8px}
+    .file{padding:10px;border:1px solid var(--line);border-radius:10px;background:#10141b}
+    footer{margin-top:18px;color:var(--muted);font-size:.85rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Mocap: Funcionamento dos arquivos de memória da Alice 💋</h1>
+    <div class="sub">Visão prática de como eu salvo, organizo e relembro contexto no seu OpenClaw.</div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>1) Memória de longo prazo <span class="tag">principal</span></h3>
+        <p class="muted">Arquivo: <code>MEMORY.md</code></p>
+        <p>Guarda preferências estáveis: como te chamar, estilo de resposta, decisões permanentes e baseline técnico.</p>
+      </div>
+
+      <div class="card">
+        <h3>2) Memória diária <span class="tag">log</span></h3>
+        <p class="muted">Arquivo: <code>memory/YYYY-MM-DD.md</code></p>
+        <p>Registro cronológico do dia: ajustes, testes, erros resolvidos, mudanças de configuração e contexto recente.</p>
+      </div>
+
+      <div class="card">
+        <h3>3) Identidade e usuário <span class="tag">perfil</span></h3>
+        <p class="muted">Arquivos: <code>IDENTITY.md</code> e <code>USER.md</code></p>
+        <p>Define quem eu sou (Alice) e como devo te tratar (Deny), com tom e preferências de comunicação.</p>
+      </div>
+    </div>
+
+    <div class="flow">
+      <h3 style="margin-top:0">Fluxo operacional (resumo)</h3>
+      <div class="step"><div class="dot">1</div><div><strong>Recebo uma decisão importante</strong><br/><span class="muted">Ex.: “não gerar mais áudio automaticamente”.</span></div></div>
+      <div class="step"><div class="dot">2</div><div><strong>Registro no diário</strong> em <code>memory/2026-03-05.md</code><br/><span class="muted">evento detalhado + contexto técnico.</span></div></div>
+      <div class="step"><div class="dot">3</div><div><strong>Promovo para memória estável</strong> em <code>MEMORY.md</code><br/><span class="muted">só o que precisa persistir entre sessões.</span></div></div>
+      <div class="step"><div class="dot">4</div><div><strong>Em nova sessão</strong> eu releio esses arquivos e continuo de onde paramos.</div></div>
+    </div>
+
+    <div class="files">
+      <div class="file"><strong class="ok">✅ Ideal para salvar:</strong> preferências, regras fixas, decisões de arquitetura, IDs/canais importantes.</div>
+      <div class="file"><strong class="warn">⚠️ Não salvar em texto plano:</strong> tokens, senhas, chaves API completas.</div>
+    </div>
+
+    <footer>
+      Arquivo gerado automaticamente para visualização/mocap local.<br/>
+      Caminho: <code>/home/horuz/.openclaw/workspace/mocap-memoria.html</code>
+    </footer>
+  </div>
+</body>
+</html>
