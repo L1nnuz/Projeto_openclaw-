@@ -41,10 +41,10 @@ Todos habilitados no boot e em estado `active`.
 - `http://127.0.0.1/info.php` → PHP 8.3.6
 
 ## Acesso externo
-- `http://74.163.240.107/`
-- `http://74.163.240.107:8080/`
+- `http://74.163.240.107/` → redireciona para HTTPS
+- `http://74.163.240.107:8080/` → redireciona para HTTPS
 - `https://74.163.240.107/` (certificado self-signed)
-- `http://74.163.240.107/phpmyadmin/`
+- `https://74.163.240.107/phpmyadmin/` (restrito por allowlist)
 
 ## Banco criado (aplicação)
 - Database: `openclaw_app`
@@ -55,10 +55,15 @@ Todos habilitados no boot e em estado `active`.
 ## SSL
 - Certificado configurado para IP `74.163.240.107`
 - Tipo: **self-signed** (navegador exibirá aviso até você confiar manualmente)
+- HTTP (80/8080) forçado para HTTPS (443)
+
+## Restrição do phpMyAdmin
+- `/phpmyadmin` liberado apenas para: `127.0.0.1`, `::1`, `74.163.240.107`
+- Demais origens recebem `403 Forbidden`
 
 ## Firewall
-- Regras UFW adicionadas para `80/tcp`, `8080/tcp`, `443/tcp`
-- Estado atual do UFW: `inactive`
+- UFW habilitado (`active`) com política padrão: `deny incoming`, `allow outgoing`
+- Portas liberadas: `22/tcp (OpenSSH)`, `80/tcp`, `8080/tcp`, `443/tcp`
 
 ## Próximo passo recomendado (segurança)
 Remover `info.php` após validação:
