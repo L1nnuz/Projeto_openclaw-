@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OpenClaw Control Center — Deny & Alice</title>
+  <meta name="description" content="Painel profissional com funções ativas do ecossistema OpenClaw: multiagentes, memória em camadas, automações e integrações." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --surface: #121a2b;
+      --surface-2: #18233b;
+      --text: #eef3ff;
+      --muted: #a8b6d9;
+      --primary: #6ea8fe;
+      --success: #57d39b;
+      --warn: #ffcc66;
+      --border: #2a3857;
+      --radius: 14px;
+      --shadow: 0 12px 30px rgba(0, 0, 0, .28);
+      --space-1: 8px;
+      --space-2: 16px;
+      --space-3: 24px;
+      --space-4: 32px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 90% -20%, #22335a 0%, var(--bg) 55%);
+      line-height: 1.5;
+    }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+      padding: var(--space-4) 0 56px;
+    }
+
+    header {
+      display: grid;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+
+    .eyebrow {
+      color: var(--primary);
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: .78rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.15;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      max-width: 820px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-2);
+    }
+
+    .card {
+      grid-column: span 12;
+      background: linear-gradient(180deg, var(--surface) 0%, #101728 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-3);
+      box-shadow: var(--shadow);
+    }
+
+    .card h2, .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .muted { color: var(--muted); }
+
+    .status-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: .78rem;
+      padding: 4px 10px;
+      background: var(--surface-2);
+      color: #d6e2ff;
+    }
+
+    .badge.ok {
+      border-color: rgba(87, 211, 155, .5);
+      color: #b7f2d5;
+      background: rgba(87, 211, 155, .12);
+    }
+
+    .cols-2 {
+      display: grid;
+      gap: var(--space-2);
+    }
+
+    .agent {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .agent h3 { margin: 0 0 8px; }
+
+    .agent ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .step {
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: .92rem;
+    }
+
+    .step strong { color: #fff; }
+
+    footer {
+      margin-top: var(--space-3);
+      color: var(--muted);
+      font-size: .9rem;
+      border-top: 1px solid var(--border);
+      padding-top: var(--space-2);
+    }
+
+    @media (min-width: 860px) {
+      .card.span-7 { grid-column: span 7; }
+      .card.span-5 { grid-column: span 5; }
+      .cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <p class="eyebrow">OpenClaw • Atualização de Plataforma</p>
+      <h1>Website atualizado com as novas funções instaladas</h1>
+      <p class="subtitle">Ambiente reorganizado para operação profissional: orquestração multiagente, validação de qualidade, memória em camadas e integrações práticas para execução diária.</p>
+    </header>
+
+    <section class="grid" aria-label="Resumo executivo">
+      <article class="card span-7">
+        <h2>Resumo executivo</h2>
+        <p class="muted">A operação agora usa um modelo de <strong>coordenação central</strong> (Alice) com dois agentes especializados para ganhar velocidade e manter qualidade consistente em cada entrega.</p>
+        <div class="flow" aria-label="Fluxo operacional">
+          <div class="step"><strong>1.</strong> Alice recebe a demanda</div>
+          <div class="step"><strong>2.</strong> Lia planeja prioridades e riscos</div>
+          <div class="step"><strong>3.</strong> Alice executa e integra</div>
+          <div class="step"><strong>4.</strong> Caio revisa qualidade final</div>
+          <div class="step"><strong>5.</strong> Entrega consolidada ao usuário</div>
+        </div>
+      </article>
+
+      <article class="card span-5">
+        <h2>Status das funções</h2>
+        <ul class="status-list">
+          <li class="status"><span class="badge ok">Ativo</span> Orquestração de agentes (Alice + Lia + Caio)</li>
+          <li class="status"><span class="badge ok">Ativo</span> Memória em camadas (curta, sessão, operacional, longa)</li>
+          <li class="status"><span class="badge ok">Ativo</span> Integração Telegram</li>
+          <li class="status"><span class="badge ok">Ativo</span> Gateway local em 127.0.0.1:18789</li>
+          <li class="status"><span class="badge">Controlado</span> TTS/STT com política de áudio sob demanda</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Equipe de agentes especializados</h2>
+        <div class="cols-2" role="list">
+          <section class="agent" role="listitem" aria-label="Agente Lia">
+            <h3>Lia — Triagem & Planejamento</h3>
+            <ul>
+              <li>Classifica a tarefa por complexidade e urgência</li>
+              <li>Define plano curto com prioridades e riscos</li>
+              <li>Mantém foco em execução objetiva e sem ruído</li>
+              <li>Entrega roteiro acionável para a Alice</li>
+            </ul>
+          </section>
+
+          <section class="agent" role="listitem" aria-label="Agente Caio">
+            <h3>Caio — QA & Entrega</h3>
+            <ul>
+              <li>Revisa clareza, consistência e qualidade final</li>
+              <li>Aponta ajustes com correção prática</li>
+              <li>Padroniza versão recomendada para publicação</li>
+              <li>Reduz risco de resposta genérica ou incompleta</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="card span-7">
+        <h2>Memória em camadas (governança)</h2>
+        <ul>
+          <li><strong>Camada 0:</strong> contexto da tarefa atual</li>
+          <li><strong>Camada 1:</strong> decisões válidas na sessão em andamento</li>
+          <li><strong>Camada 2:</strong> memória operacional da equipe (templates e padrões)</li>
+          <li><strong>Camada 3:</strong> memória longa curada (preferências e baseline técnico)</li>
+        </ul>
+        <p class="muted">Resultado: continuidade sem perder segurança, com rastreabilidade das decisões e melhor previsibilidade de resposta.</p>
+      </article>
+
+      <article class="card span-5">
+        <h2>Diretrizes de operação</h2>
+        <ul>
+          <li>Português direto e objetivo</li>
+          <li>Privacidade e segurança primeiro</li>
+          <li>Ações externas somente quando necessário</li>
+          <li>Sempre com próximo passo claro</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      Atualização aplicada por Alice • padrão visual profissional, responsivo e pronto para evolução.
+    </footer>
+  </main>
+</body>
+</html>
