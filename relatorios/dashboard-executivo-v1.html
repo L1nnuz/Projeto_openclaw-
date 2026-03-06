@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard Executivo v1 — OpenClaw</title>
+  <meta name="description" content="Relatório executivo v1 com status geral OpenClaw: segurança, memória, automações e infraestrutura web." />
+  <style>
+    :root {
+      --bg: #0a1220;
+      --bg-soft: #0f1a2d;
+      --card: #121f35;
+      --card-2: #1a2b48;
+      --line: #273a5e;
+      --text: #eaf1ff;
+      --muted: #9cb0d4;
+      --primary: #7aa2ff;
+      --ok: #59d79b;
+      --warn: #ffcc70;
+      --danger: #ff6f8f;
+      --r: 14px;
+      --s1: 8px;
+      --s2: 16px;
+      --s3: 24px;
+      --s4: 32px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 700px at 100% -20%, #213a67, var(--bg) 60%);
+      line-height: 1.45;
+    }
+
+    .wrap { width: min(1200px, 92vw); margin: 0 auto; padding: var(--s4) 0 60px; }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--s2);
+      align-items: end;
+      margin-bottom: var(--s3);
+    }
+
+    .eyebrow {
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .78rem;
+      margin: 0 0 8px;
+      font-weight: 700;
+    }
+
+    h1 { margin: 0; font-size: clamp(1.5rem, 3.4vw, 2.4rem); }
+    .muted { color: var(--muted); }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: var(--bg-soft);
+      font-size: .78rem;
+      display: inline-block;
+      margin-left: 8px;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--s2);
+      margin-bottom: var(--s2);
+    }
+
+    .kpi {
+      grid-column: span 12;
+      background: linear-gradient(180deg, var(--card), #0f1b31);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 14px;
+    }
+
+    .kpi .name { color: var(--muted); font-size: .82rem; }
+    .kpi .value { font-size: 1.5rem; font-weight: 700; margin-top: 4px; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--s2);
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--card), #0f1b31);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 18px;
+    }
+
+    .card h2 { margin-top: 0; font-size: 1.05rem; }
+
+    .list { margin: 0; padding-left: 18px; }
+    .list li + li { margin-top: 6px; }
+
+    .row-2 { display: grid; grid-template-columns: 1fr; gap: var(--s2); }
+
+    .progress {
+      margin: 12px 0;
+      background: #0d1729;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      overflow: hidden;
+      height: 12px;
+    }
+
+    .bar { height: 100%; background: linear-gradient(90deg, var(--primary), #9fc0ff); }
+
+    .timeline { display: grid; gap: 10px; }
+    .event {
+      border-left: 2px solid var(--line);
+      padding-left: 10px;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .92rem;
+    }
+
+    .table th, .table td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px 6px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: .75rem;
+      background: var(--card-2);
+    }
+
+    .ok { color: #b8f4d8; border-color: rgba(89,215,155,.5); background: rgba(89,215,155,.13); }
+    .warn { color: #ffe1a9; border-color: rgba(255,204,112,.5); background: rgba(255,204,112,.13); }
+
+    footer { margin-top: var(--s3); color: var(--muted); font-size: .9rem; }
+
+    @media (min-width: 760px) {
+      .kpi { grid-column: span 6; }
+      .row-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (min-width: 1080px) {
+      .kpi { grid-column: span 2; }
+      .layout { grid-template-columns: 2fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div>
+        <p class="eyebrow">Relatórios • v1</p>
+        <h1>Dashboard Executivo — Regras, Segurança e Operação</h1>
+        <p class="muted">Tema: Status geral OpenClaw (segurança + memória + infraestrutura web + automações).</p>
+      </div>
+      <div>
+        <span class="tag">Versão: v1</span>
+        <span class="tag">Timezone: UTC</span>
+      </div>
+    </header>
+
+    <section class="kpi-grid" aria-label="KPIs principais">
+      <article class="kpi"><div class="name">Serviços críticos ativos</div><div class="value">3/3</div></article>
+      <article class="kpi"><div class="name">Portas web publicadas</div><div class="value">3</div></article>
+      <article class="kpi"><div class="name">Jobs de preservação diária</div><div class="value">2</div></article>
+      <article class="kpi"><div class="name">Hardening web aplicado</div><div class="value">100%</div></article>
+      <article class="kpi"><div class="name">Regras operacionais ativas</div><div class="value">8</div></article>
+      <article class="kpi"><div class="name">Risco atual (macro)</div><div class="value">Baixo</div></article>
+    </section>
+
+    <section class="layout" aria-label="Conteúdo principal">
+      <article class="card">
+        <h2>1) Panorama geral</h2>
+        <p class="muted">Painel consolidado para acompanhamento diário. A proposta é manter rastreabilidade de regras, saúde da stack web e continuidade de memória sem perda de contexto.</p>
+
+        <div class="row-2">
+          <section>
+            <h3>Compliance de regras (estimado)</h3>
+            <div class="progress"><div class="bar" style="width: 92%"></div></div>
+            <ul class="list">
+              <li>Publicação automática de websites no servidor ativo</li>
+              <li>Memória em camadas com rotina diária às 00:00 UTC</li>
+              <li>Hardening (HTTPS forçado, headers, firewall ativo)</li>
+              <li>Versionamento e push GitHub quando solicitado</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Eventos recentes</h3>
+            <div class="timeline">
+              <div class="event"><strong>Infra</strong> — stack web provisionada (Nginx, PHP-FPM, MariaDB)</div>
+              <div class="event"><strong>Segurança</strong> — correção de exposição de source no phpMyAdmin</div>
+              <div class="event"><strong>Operação</strong> — cron diário dividido em memória + infraestrutura</div>
+              <div class="event"><strong>Design</strong> — relatório em pasta dedicada <code>/relatorios</code></div>
+            </div>
+          </section>
+        </div>
+
+        <h3 style="margin-top:20px">Matriz de regras ativas</h3>
+        <table class="table" aria-label="Tabela de regras">
+          <thead>
+            <tr>
+              <th>Regra</th>
+              <th>Descrição resumida</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Identidade & tom</td>
+              <td>Comunicação em português direto; estilo alinhado ao usuário.</td>
+              <td><span class="badge ok">Ativa</span></td>
+            </tr>
+            <tr>
+              <td>Multiagente</td>
+              <td>Lia (planejamento) + Caio (QA), com Alice na governança.</td>
+              <td><span class="badge ok">Ativa</span></td>
+            </tr>
+            <tr>
+              <td>Memória em camadas</td>
+              <td>Registro em diário + memória longa curada.</td>
+              <td><span class="badge ok">Ativa</span></td>
+            </tr>
+            <tr>
+              <td>Website auto-publish</td>
+              <td>Toda criação/edição de website é publicada no servidor web ativo.</td>
+              <td><span class="badge ok">Ativa</span></td>
+            </tr>
+            <tr>
+              <td>Segurança web</td>
+              <td>HTTPS, redirect, headers, firewall, phpMyAdmin restrito.</td>
+              <td><span class="badge ok">Ativa</span></td>
+            </tr>
+            <tr>
+              <td>Certificado público</td>
+              <td>Dependente de abertura externa da porta 80 no provedor.</td>
+              <td><span class="badge warn">Pendente externo</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <aside class="card">
+        <h2>2) Escopo (Opções 1–3 aplicadas)</h2>
+        <ul class="list">
+          <li><strong>Opção 1:</strong> Tema do relatório definido (status geral OpenClaw).</li>
+          <li><strong>Opção 2:</strong> KPIs principais no topo (6 indicadores).</li>
+          <li><strong>Opção 3:</strong> Página nomeada e estruturada para versão v1.</li>
+        </ul>
+
+        <h3 style="margin-top:18px">Arquivo da v1</h3>
+        <p><code>relatorios/dashboard-executivo-v1.html</code></p>
+
+        <h3>Próximos upgrades (v2)</h3>
+        <ul class="list">
+          <li>Timestamp dinâmico de auditoria</li>
+          <li>Indicador de saúde em tempo real por serviço</li>
+          <li>Gráficos de tendência (7 dias)</li>
+          <li>Exportação PDF</li>
+        </ul>
+      </aside>
+    </section>
+
+    <footer>
+      Dashboard v1 criado em HTML5 para governança operacional e acompanhamento executivo.
+    </footer>
+  </main>
+</body>
+</html>
