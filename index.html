@@ -3,256 +3,279 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OpenClaw Control Center — Deny & Alice</title>
-  <meta name="description" content="Painel profissional com funções ativas do ecossistema OpenClaw: multiagentes, memória em camadas, automações e integrações." />
+  <title>PoE1 Witch SRS — League Start Mirage</title>
+  <meta name="description" content="Guia profissional de Path of Exile 1 para Witch Necromancer Summon Raging Spirit (SRS), focado em league start Mirage com gems, equipamentos e progressão." />
   <style>
     :root {
-      --bg: #0b1020;
-      --surface: #121a2b;
-      --surface-2: #18233b;
-      --text: #eef3ff;
-      --muted: #a8b6d9;
-      --primary: #6ea8fe;
-      --success: #57d39b;
-      --warn: #ffcc66;
-      --border: #2a3857;
+      --bg: #0a0d14;
+      --panel: #111827;
+      --panel-2: #1b263b;
+      --text: #edf2ff;
+      --muted: #aebad1;
+      --primary: #7aa2ff;
+      --ok: #5ed6a3;
+      --warn: #ffd27a;
+      --border: #2a3956;
       --radius: 14px;
-      --shadow: 0 12px 30px rgba(0, 0, 0, .28);
-      --space-1: 8px;
-      --space-2: 16px;
-      --space-3: 24px;
-      --space-4: 32px;
+      --s1: 8px;
+      --s2: 16px;
+      --s3: 24px;
+      --s4: 32px;
     }
 
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 90% -10%, #1e2f54, var(--bg) 55%);
       color: var(--text);
-      background: radial-gradient(1200px 800px at 90% -20%, #22335a 0%, var(--bg) 55%);
       line-height: 1.5;
     }
 
     .container {
-      width: min(1120px, 92vw);
+      width: min(1160px, 92vw);
       margin: 0 auto;
-      padding: var(--space-4) 0 56px;
+      padding: var(--s4) 0 56px;
     }
 
     header {
-      display: grid;
-      gap: var(--space-2);
-      margin-bottom: var(--space-3);
+      margin-bottom: var(--s3);
     }
 
     .eyebrow {
+      margin: 0 0 10px;
       color: var(--primary);
-      font-weight: 600;
-      letter-spacing: .08em;
       text-transform: uppercase;
+      letter-spacing: .08em;
       font-size: .78rem;
+      font-weight: 700;
     }
 
     h1 {
-      margin: 0;
+      margin: 0 0 12px;
       font-size: clamp(1.8rem, 4vw, 2.8rem);
       line-height: 1.15;
     }
 
-    .subtitle {
-      margin: 0;
-      color: var(--muted);
-      max-width: 820px;
-    }
+    .sub { color: var(--muted); margin: 0; max-width: 900px; }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: var(--space-2);
+      gap: var(--s2);
+      margin-top: var(--s3);
     }
 
     .card {
       grid-column: span 12;
-      background: linear-gradient(180deg, var(--surface) 0%, #101728 100%);
+      background: linear-gradient(180deg, var(--panel), #0f1727);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: var(--space-3);
-      box-shadow: var(--shadow);
+      padding: var(--s3);
     }
 
-    .card h2, .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
+    .span-7 { grid-column: span 12; }
+    .span-5 { grid-column: span 12; }
+
+    h2, h3 { margin-top: 0; }
 
     .muted { color: var(--muted); }
 
-    .status-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .status {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
     .badge {
       display: inline-flex;
-      align-items: center;
       border: 1px solid var(--border);
       border-radius: 999px;
-      font-size: .78rem;
       padding: 4px 10px;
-      background: var(--surface-2);
-      color: #d6e2ff;
+      font-size: .78rem;
+      background: var(--panel-2);
+      margin-right: 8px;
+      margin-bottom: 8px;
     }
 
-    .badge.ok {
-      border-color: rgba(87, 211, 155, .5);
-      color: #b7f2d5;
-      background: rgba(87, 211, 155, .12);
-    }
+    ul { margin: 0; padding-left: 18px; }
+    li + li { margin-top: 6px; }
 
-    .cols-2 {
+    .columns {
       display: grid;
-      gap: var(--space-2);
+      gap: var(--s2);
+      grid-template-columns: 1fr;
     }
 
-    .agent {
-      background: rgba(255, 255, 255, 0.02);
+    .mini {
+      background: rgba(255,255,255,0.02);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 14px;
     }
 
-    .agent h3 { margin: 0 0 8px; }
+    .tag-ok { color: #b8f5d7; border-color: rgba(94,214,163,.5); background: rgba(94,214,163,.12); }
+    .tag-warn { color: #ffe3ab; border-color: rgba(255,210,122,.5); background: rgba(255,210,122,.12); }
 
-    .agent ul {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .flow {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .step {
-      border: 1px solid var(--border);
-      background: var(--surface-2);
-      border-radius: 10px;
-      padding: 10px 12px;
-      font-size: .92rem;
-    }
-
-    .step strong { color: #fff; }
+    a { color: #a7c2ff; }
 
     footer {
-      margin-top: var(--space-3);
+      margin-top: var(--s3);
       color: var(--muted);
       font-size: .9rem;
       border-top: 1px solid var(--border);
-      padding-top: var(--space-2);
+      padding-top: var(--s2);
     }
 
-    @media (min-width: 860px) {
-      .card.span-7 { grid-column: span 7; }
-      .card.span-5 { grid-column: span 5; }
-      .cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (min-width: 900px) {
+      .span-7 { grid-column: span 7; }
+      .span-5 { grid-column: span 5; }
+      .columns { grid-template-columns: repeat(2, minmax(0,1fr)); }
     }
   </style>
 </head>
 <body>
   <main class="container">
     <header>
-      <p class="eyebrow">OpenClaw • Atualização de Plataforma</p>
-      <h1>Website atualizado com as novas funções instaladas</h1>
-      <p class="subtitle">Ambiente reorganizado para operação profissional: orquestração multiagente, validação de qualidade, memória em camadas e integrações práticas para execução diária.</p>
+      <p class="eyebrow">Path of Exile 1 • Witch Necromancer</p>
+      <h1>League Start Mirage — Guia Profissional SRS (Summon Raging Spirit)</h1>
+      <p class="sub">Build focada em progressão segura de campanha até mapas, com transição para poison/chaos no endgame. Página organizada para consulta rápida durante leveling e farm.</p>
     </header>
 
-    <section class="grid" aria-label="Resumo executivo">
+    <section class="grid" aria-label="Resumo da build">
       <article class="card span-7">
-        <h2>Resumo executivo</h2>
-        <p class="muted">A operação agora usa um modelo de <strong>coordenação central</strong> (Alice) com dois agentes especializados para ganhar velocidade e manter qualidade consistente em cada entrega.</p>
-        <div class="flow" aria-label="Fluxo operacional">
-          <div class="step"><strong>1.</strong> Alice recebe a demanda</div>
-          <div class="step"><strong>2.</strong> Lia planeja prioridades e riscos</div>
-          <div class="step"><strong>3.</strong> Alice executa e integra</div>
-          <div class="step"><strong>4.</strong> Caio revisa qualidade final</div>
-          <div class="step"><strong>5.</strong> Entrega consolidada ao usuário</div>
-        </div>
+        <h2>Visão geral da build</h2>
+        <p>
+          A Witch SRS é um league starter sólido: limpa campanha com conforto, escala bem em mapas e evolui com upgrades graduais.
+          O núcleo inicial usa <strong>SRS + Holy Flame Totem</strong>; no mid/endgame, migra para setup com poison/chaos e itens-chave.
+        </p>
+        <span class="badge tag-ok">Classe: Witch</span>
+        <span class="badge tag-ok">Ascendancy: Necromancer</span>
+        <span class="badge">Skill principal: Summon Raging Spirit</span>
+        <span class="badge tag-warn">Meta: League Start Mirage</span>
       </article>
 
       <article class="card span-5">
-        <h2>Status das funções</h2>
-        <ul class="status-list">
-          <li class="status"><span class="badge ok">Ativo</span> Orquestração de agentes (Alice + Lia + Caio)</li>
-          <li class="status"><span class="badge ok">Ativo</span> Memória em camadas (curta, sessão, operacional, longa)</li>
-          <li class="status"><span class="badge ok">Ativo</span> Integração Telegram</li>
-          <li class="status"><span class="badge ok">Ativo</span> Gateway local em 127.0.0.1:18789</li>
-          <li class="status"><span class="badge">Controlado</span> TTS/STT com política de áudio sob demanda</li>
+        <h2>Checklist rápido</h2>
+        <ul>
+          <li>Cap elemental resistance em <strong>75%+</strong> ao final da campanha.</li>
+          <li>Priorizar atributos em gear: <strong>STR/DEX</strong> para requirements de gem.</li>
+          <li>Concluir labs (1 a 3) antes de pressionar mapas altos.</li>
+          <li>Usar base de Armadura + Energy Shield para facilitar cores.</li>
+          <li>Manter frascos e links atualizados a cada ato.</li>
         </ul>
       </article>
 
       <article class="card">
-        <h2>Equipe de agentes especializados</h2>
-        <div class="cols-2" role="list">
-          <section class="agent" role="listitem" aria-label="Agente Lia">
-            <h3>Lia — Triagem & Planejamento</h3>
+        <h2>Skill Gems por fase</h2>
+        <div class="columns">
+          <section class="mini">
+            <h3>Ato 1–2 (base)</h3>
             <ul>
-              <li>Classifica a tarefa por complexidade e urgência</li>
-              <li>Define plano curto com prioridades e riscos</li>
-              <li>Mantém foco em execução objetiva e sem ruído</li>
-              <li>Entrega roteiro acionável para a Alice</li>
+              <li><strong>SRS + Ruthless</strong> (depois trocar para Splash/Minion Damage)</li>
+              <li><strong>Holy Flame Totem + Combustion</strong></li>
+              <li>Mobilidade: Frostblink (ou Flame Dash)</li>
+              <li>Utilitárias: Clarity, Shield Charge, Vitality (opcional)</li>
+              <li>Subir Desecrate em slot secundário no Ato 2</li>
             </ul>
           </section>
 
-          <section class="agent" role="listitem" aria-label="Agente Caio">
-            <h3>Caio — QA & Entrega</h3>
+          <section class="mini">
+            <h3>Ato 3–4 (estabilização)</h3>
             <ul>
-              <li>Revisa clareza, consistência e qualidade final</li>
-              <li>Aponta ajustes com correção prática</li>
-              <li>Padroniza versão recomendada para publicação</li>
-              <li>Reduz risco de resposta genérica ou incompleta</li>
+              <li>Auras: Purity of Elements + Determination</li>
+              <li>Curse: Elemental Weakness</li>
+              <li><strong>SRS + Unleash + Multistrike + Chance to Poison</strong></li>
+              <li>Golems: Stone Golem / Chaos Golem + Feeding Frenzy</li>
+              <li>Ao pegar Eldritch Battery, ajustar mana reservation (remover Clarity)</li>
+            </ul>
+          </section>
+
+          <section class="mini">
+            <h3>Mapas iniciais</h3>
+            <ul>
+              <li>Setup principal de SRS em 4L/5L com foco em dano de minion.</li>
+              <li>Arcanist/utility setup com Desecrate + Offering + Curse para bosses.</li>
+              <li>Guardar Minion Damage para quando fechar 5L/6L apropriado.</li>
+            </ul>
+          </section>
+
+          <section class="mini">
+            <h3>Transição poison/chaos</h3>
+            <ul>
+              <li>Com <strong>The Covenant</strong>, migrar links para escala de chaos.</li>
+              <li><strong>United in Dream</strong> ajuda a fechar chance alta de poison.</li>
+              <li>Ajustar aura/reservation conforme colar e passivas disponíveis.</li>
             </ul>
           </section>
         </div>
       </article>
 
       <article class="card span-7">
-        <h2>Memória em camadas (governança)</h2>
+        <h2>Equipamentos recomendados (League Start → Endgame)</h2>
+        <h3>Prioridade de upgrades</h3>
         <ul>
-          <li><strong>Camada 0:</strong> contexto da tarefa atual</li>
-          <li><strong>Camada 1:</strong> decisões válidas na sessão em andamento</li>
-          <li><strong>Camada 2:</strong> memória operacional da equipe (templates e padrões)</li>
-          <li><strong>Camada 3:</strong> memória longa curada (preferências e baseline técnico)</li>
+          <li><strong>Rumi's Concoction</strong> (sobrevivência com block).</li>
+          <li><strong>The Covenant</strong> (salto forte de dano chaos em minions).</li>
+          <li><strong>United in Dream</strong> (sinergia de poison no SRS).</li>
+          <li><strong>Aul's Uprising</strong> (versão de aura viável no orçamento inicial e upgrade depois).</li>
+          <li><strong>Progenesis</strong> (upgrade de alto custo para suavizar conteúdo difícil).</li>
         </ul>
-        <p class="muted">Resultado: continuidade sem perder segurança, com rastreabilidade das decisões e melhor previsibilidade de resposta.</p>
+
+        <h3>Craft básico sugerido</h3>
+        <ul>
+          <li><strong>Botas:</strong> base fraturada com chaos res + essence para avoid ailments + movimento.</li>
+          <li><strong>Luva:</strong> base fraturada (vida/res) + essence de minion damage.</li>
+          <li><strong>Escudo:</strong> base fraturada com spell block + essence para block/avoid ailments.</li>
+        </ul>
       </article>
 
       <article class="card span-5">
-        <h2>Diretrizes de operação</h2>
+        <h2>Animate Guardian e Spectres</h2>
+        <h3>Animate Guardian (setup prático)</h3>
         <ul>
-          <li>Português direto e objetivo</li>
-          <li>Privacidade e segurança primeiro</li>
-          <li>Ações externas somente quando necessário</li>
-          <li>Sempre com próximo passo claro</li>
+          <li>Weapon: Dying Breath</li>
+          <li>Helmet: Leer Cast</li>
+          <li>Body: Belly of the Beast → Doppelgänger Guise</li>
+          <li>Boots: Windscream</li>
+          <li>Gloves: Asenath's Gentle Touch</li>
         </ul>
+        <h3>Spectres úteis</h3>
+        <ul>
+          <li>Stygian Silverback (frenzy charges)</li>
+          <li>Host Chieftain (power charges)</li>
+          <li>Arena Master (speed buffs)</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Progressão por atos (resumo operacional)</h2>
+        <div class="columns">
+          <section class="mini">
+            <h3>Ato 1</h3>
+            <p class="muted">Comece com Rolling Magma, migre para SRS cedo, mantenha Holy Flame Totem para suporte de dano no leveling inicial.</p>
+          </section>
+          <section class="mini">
+            <h3>Ato 2</h3>
+            <p class="muted">Pegar Desecrate, preparar Tempest Shield e matar todos os bandidos conforme plano da build.</p>
+          </section>
+          <section class="mini">
+            <h3>Ato 3</h3>
+            <p class="muted">Ativar Purity/Determination quando a reserva permitir; buscar soluções de DEX para requisitos.</p>
+          </section>
+          <section class="mini">
+            <h3>Ato 4+</h3>
+            <p class="muted">Entrar no setup com Unleash e preparar transição gradual para mapas/endgame com foco em resistências e links.</p>
+          </section>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Fontes de pesquisa</h2>
+        <ul>
+          <li><a href="https://pobb.in/tdu-nwzLWo3Q" target="_blank" rel="noopener noreferrer">PoB (pobb.in/tdu-nwzLWo3Q)</a></li>
+          <li><a href="https://poe.ninja/poe1/pob/7e5ae" target="_blank" rel="noopener noreferrer">poe.ninja profile (7e5ae)</a></li>
+        </ul>
+        <p class="muted">Nota: esta página consolida e organiza o material para uso prático durante a liga; ajuste fino de números/links pode variar conforme patch e economia.</p>
       </article>
     </section>
 
     <footer>
-      Atualização aplicada por Alice • padrão visual profissional, responsivo e pronto para evolução.
+      Guia preparado para consulta rápida em desktop e mobile • atualizado para League Start Mirage.
     </footer>
   </main>
 </body>
