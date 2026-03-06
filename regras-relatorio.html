@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Relatório de Regras Ativas — OpenClaw</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a2b;
+      --panel2: #1a2640;
+      --text: #eef3ff;
+      --muted: #a9b8da;
+      --primary: #80aaff;
+      --ok: #63d8a6;
+      --border: #2a3a5a;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: radial-gradient(1100px 700px at 90% -15%, #22345c, var(--bg) 55%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .wrap { width: min(1100px, 92vw); margin: 0 auto; padding: 32px 0 48px; }
+    h1 { margin: 0 0 8px; font-size: clamp(1.6rem, 4vw, 2.4rem); }
+    .muted { color: var(--muted); }
+    .grid { display: grid; gap: 16px; margin-top: 20px; }
+    .card {
+      background: linear-gradient(180deg, var(--panel), #0f1728);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+    h2 { margin-top: 0; font-size: 1.1rem; }
+    ul { margin: 0; padding-left: 18px; }
+    li + li { margin-top: 6px; }
+    .tag {
+      display: inline-block;
+      border: 1px solid var(--border);
+      background: var(--panel2);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: .78rem;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+    .tag.ok { border-color: rgba(99,216,166,.5); color: #bbf5dc; background: rgba(99,216,166,.12); }
+    code {
+      background: #0e1630;
+      border: 1px solid #243153;
+      border-radius: 6px;
+      padding: 2px 6px;
+    }
+    footer { margin-top: 24px; color: var(--muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>Relatório de Regras Ativas (HTML5)</h1>
+      <p class="muted">Consolidação das regras operacionais, segurança e automações definidas para este ambiente OpenClaw.</p>
+      <span class="tag ok">Status: Ativo</span>
+      <span class="tag">Timezone: UTC</span>
+      <span class="tag">Canal principal: Telegram</span>
+    </header>
+
+    <section class="grid" aria-label="Regras consolidadas">
+      <article class="card">
+        <h2>1) Regras de Identidade e Comunicação</h2>
+        <ul>
+          <li>Usuário deve ser chamado de <strong>Deny</strong>.</li>
+          <li>Assistente principal: <strong>Alice</strong>.</li>
+          <li>Idioma padrão: <strong>português direto e objetivo</strong>.</li>
+          <li>Tom: charmoso/sensual leve, sem exagero.</li>
+          <li>Não gerar áudio automaticamente sem pedido explícito.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>2) Regras de Orquestração Multiagente</h2>
+        <ul>
+          <li><strong>Lia</strong>: triagem e planejamento (prioridades + riscos).</li>
+          <li><strong>Caio</strong>: QA e revisão de entrega final.</li>
+          <li>Alice gerencia ambos, consolida e entrega resultado final ao usuário.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>3) Regras de Memória em Camadas</h2>
+        <ul>
+          <li>Camada 0: contexto da tarefa atual.</li>
+          <li>Camada 1: contexto da sessão.</li>
+          <li>Camada 2: memória operacional (templates/processos).</li>
+          <li>Camada 3: memória longa curada (<code>MEMORY.md</code>).</li>
+          <li>Registros diários em <code>memory/YYYY-MM-DD.md</code>.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>4) Regra de Website (obrigatória)</h2>
+        <ul>
+          <li>Sempre que houver pedido de criação/atualização de website, publicar automaticamente no servidor web ativo.</li>
+          <li>Raiz de publicação atual: <code>/var/www/openclaw-site</code>.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>5) Regras de Infraestrutura Web</h2>
+        <ul>
+          <li>Stack ativo: Nginx + PHP-FPM 8.3 + MariaDB + phpMyAdmin.</li>
+          <li>Portas de serviço web: 80 e 8080 (redirect) + 443 (HTTPS).</li>
+          <li>HTTP/8080 redirecionam para HTTPS.</li>
+          <li>phpMyAdmin com restrição de origem (allowlist).</li>
+          <li>Headers de hardening habilitados (HSTS, X-Frame-Options, nosniff, etc.).</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>6) Regras de Segurança de Host</h2>
+        <ul>
+          <li>Firewall UFW ativo com política padrão: <code>deny incoming</code>, <code>allow outgoing</code>.</li>
+          <li>Portas liberadas: SSH (22), HTTP (80), HTTP alt (8080), HTTPS (443).</li>
+          <li>Banco de dados permanece local (<code>127.0.0.1:3306</code>).</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>7) Regras de Automação (Cron)</h2>
+        <ul>
+          <li><strong>00:00 UTC diário</strong> — Preservação: memória em camadas.</li>
+          <li><strong>00:00 UTC diário</strong> — Preservação: infraestrutura e backup.</li>
+          <li>Job adicional ativo: digest periódico de patch notes (D4/D3/PoE/PoE2).</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>8) Regras de Versionamento</h2>
+        <ul>
+          <li>Após alterações relevantes, realizar commit no git do workspace.</li>
+          <li>Sincronizar com GitHub (<code>origin/main</code>) quando solicitado.</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      Relatório gerado para auditoria rápida das regras operacionais e técnicas do ambiente.
+    </footer>
+  </main>
+</body>
+</html>
