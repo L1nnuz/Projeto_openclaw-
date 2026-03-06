@@ -1,0 +1,7 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'>
+<rect width='800' height='500' fill='#10213f'/>
+<path d='M400 70l190 80v110c0 145-96 220-190 260-94-40-190-115-190-260V150z' fill='#59d79b22' stroke='#59d79b' stroke-width='8'/>
+<rect x='310' y='210' width='180' height='120' rx='14' fill='#59d79b'/>
+<circle cx='400' cy='250' r='24' fill='#10213f'/>
+<rect x='390' y='250' width='20' height='48' rx='8' fill='#10213f'/>
+</svg>

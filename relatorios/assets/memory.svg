@@ -1,0 +1,11 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'>
+<rect width='800' height='500' fill='#142744'/>
+<rect x='80' y='80' width='640' height='340' rx='18' fill='#0e1d34' stroke='#7aa2ff' stroke-width='4'/>
+<rect x='120' y='130' width='220' height='40' rx='8' fill='#7aa2ff'/>
+<rect x='120' y='190' width='560' height='12' rx='6' fill='#9dbcf6'/>
+<rect x='120' y='216' width='500' height='12' rx='6' fill='#9dbcf6'/>
+<rect x='120' y='242' width='530' height='12' rx='6' fill='#9dbcf6'/>
+<rect x='120' y='268' width='420' height='12' rx='6' fill='#9dbcf6'/>
+<circle cx='640' cy='150' r='52' fill='#59d79b'/>
+<text x='623' y='158' font-size='36' fill='#0e1d34' font-family='Arial'>M</text>
+</svg>

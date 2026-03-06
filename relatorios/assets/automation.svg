@@ -1,0 +1,10 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'>
+<rect width='800' height='500' fill='#10213f'/>
+<circle cx='400' cy='250' r='120' fill='#7aa2ff22' stroke='#7aa2ff' stroke-width='8'/>
+<circle cx='400' cy='250' r='50' fill='#7aa2ff'/>
+<rect x='390' y='90' width='20' height='80' fill='#59d79b'/>
+<rect x='390' y='330' width='20' height='80' fill='#59d79b'/>
+<rect x='560' y='240' width='80' height='20' fill='#59d79b'/>
+<rect x='160' y='240' width='80' height='20' fill='#59d79b'/>
+<text x='330' y='258' font-size='24' fill='#0b1730' font-family='Arial'>00:00</text>
+</svg>
