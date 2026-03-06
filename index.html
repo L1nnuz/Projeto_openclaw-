@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PoE1 Witch SRS — League Start Mirage</title>
-  <meta name="description" content="Guia profissional de Path of Exile 1 para Witch Necromancer Summon Raging Spirit (SRS), focado em league start Mirage com gems, equipamentos e progressão." />
+  <title>PoE1 Witch SRS — League Start Mirage (v2)</title>
+  <meta name="description" content="Guia PoE1 Witch SRS com navegação por abas: Campanha, Skill Gems, Equipamentos, AG/Spectres e Endgame." />
   <style>
     :root {
       --bg: #0a0d14;
       --panel: #111827;
-      --panel-2: #1b263b;
-      --text: #edf2ff;
+      --panel-2: #1a2740;
+      --text: #eef3ff;
       --muted: #aebad1;
-      --primary: #7aa2ff;
-      --ok: #5ed6a3;
-      --warn: #ffd27a;
-      --border: #2a3956;
+      --primary: #81a9ff;
+      --ok: #58d8a1;
+      --border: #2b3b5b;
       --radius: 14px;
       --s1: 8px;
       --s2: 16px;
@@ -27,8 +26,8 @@
     body {
       margin: 0;
       font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 700px at 90% -10%, #1e2f54, var(--bg) 55%);
       color: var(--text);
+      background: radial-gradient(1000px 650px at 95% -15%, #22355f, var(--bg) 55%);
       line-height: 1.5;
     }
 
@@ -38,10 +37,7 @@
       padding: var(--s4) 0 56px;
     }
 
-    header {
-      margin-bottom: var(--s3);
-    }
-
+    header { margin-bottom: var(--s3); }
     .eyebrow {
       margin: 0 0 10px;
       color: var(--primary);
@@ -50,233 +46,269 @@
       font-size: .78rem;
       font-weight: 700;
     }
-
     h1 {
-      margin: 0 0 12px;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      line-height: 1.15;
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.1;
     }
+    .sub { margin: 0; color: var(--muted); max-width: 900px; }
 
-    .sub { color: var(--muted); margin: 0; max-width: 900px; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: var(--s2);
+    .summary {
       margin-top: var(--s3);
-    }
-
-    .card {
-      grid-column: span 12;
       background: linear-gradient(180deg, var(--panel), #0f1727);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: var(--s3);
     }
 
-    .span-7 { grid-column: span 12; }
-    .span-5 { grid-column: span 12; }
-
-    h2, h3 { margin-top: 0; }
-
-    .muted { color: var(--muted); }
-
+    .badges { margin-top: 12px; }
     .badge {
       display: inline-flex;
+      margin-right: 8px;
+      margin-bottom: 8px;
       border: 1px solid var(--border);
       border-radius: 999px;
       padding: 4px 10px;
       font-size: .78rem;
       background: var(--panel-2);
-      margin-right: 8px;
-      margin-bottom: 8px;
+    }
+    .badge.ok { border-color: rgba(88,216,161,.5); background: rgba(88,216,161,.12); color: #b9f6d9; }
+
+    .tabs {
+      margin-top: var(--s3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: linear-gradient(180deg, var(--panel), #0f1727);
     }
 
-    ul { margin: 0; padding-left: 18px; }
-    li + li { margin-top: 6px; }
+    .tab-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: var(--s2);
+      border-bottom: 1px solid var(--border);
+      background: #0f1a2d;
+    }
 
-    .columns {
+    .tab-btn {
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .tab-btn[aria-selected="true"] {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(129,169,255,.2) inset;
+    }
+
+    .tab-panel {
+      display: none;
+      padding: var(--s3);
+    }
+
+    .tab-panel.active { display: block; }
+
+    .grid {
       display: grid;
-      gap: var(--s2);
       grid-template-columns: 1fr;
+      gap: var(--s2);
     }
 
-    .mini {
-      background: rgba(255,255,255,0.02);
+    .card {
+      background: rgba(255,255,255,.02);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 14px;
     }
 
-    .tag-ok { color: #b8f5d7; border-color: rgba(94,214,163,.5); background: rgba(94,214,163,.12); }
-    .tag-warn { color: #ffe3ab; border-color: rgba(255,210,122,.5); background: rgba(255,210,122,.12); }
-
-    a { color: #a7c2ff; }
+    h2, h3 { margin-top: 0; }
+    ul { margin: 0; padding-left: 18px; }
+    li + li { margin-top: 6px; }
+    .muted { color: var(--muted); }
+    a { color: #a9c4ff; }
 
     footer {
       margin-top: var(--s3);
-      color: var(--muted);
-      font-size: .9rem;
       border-top: 1px solid var(--border);
+      color: var(--muted);
       padding-top: var(--s2);
+      font-size: .9rem;
     }
 
-    @media (min-width: 900px) {
-      .span-7 { grid-column: span 7; }
-      .span-5 { grid-column: span 5; }
-      .columns { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    @media (min-width: 920px) {
+      .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
   </style>
 </head>
 <body>
   <main class="container">
     <header>
-      <p class="eyebrow">Path of Exile 1 • Witch Necromancer</p>
-      <h1>League Start Mirage — Guia Profissional SRS (Summon Raging Spirit)</h1>
-      <p class="sub">Build focada em progressão segura de campanha até mapas, com transição para poison/chaos no endgame. Página organizada para consulta rápida durante leveling e farm.</p>
+      <p class="eyebrow">PoE1 • Witch Necromancer</p>
+      <h1>League Start Mirage — SRS (v2 interativa)</h1>
+      <p class="sub">Versão com navegação por abas para consulta rápida durante campanha, mapas e transição endgame.</p>
     </header>
 
-    <section class="grid" aria-label="Resumo da build">
-      <article class="card span-7">
-        <h2>Visão geral da build</h2>
-        <p>
-          A Witch SRS é um league starter sólido: limpa campanha com conforto, escala bem em mapas e evolui com upgrades graduais.
-          O núcleo inicial usa <strong>SRS + Holy Flame Totem</strong>; no mid/endgame, migra para setup com poison/chaos e itens-chave.
-        </p>
-        <span class="badge tag-ok">Classe: Witch</span>
-        <span class="badge tag-ok">Ascendancy: Necromancer</span>
-        <span class="badge">Skill principal: Summon Raging Spirit</span>
-        <span class="badge tag-warn">Meta: League Start Mirage</span>
-      </article>
+    <section class="summary" aria-label="Resumo da build">
+      <h2>Resumo</h2>
+      <p>Build sólida para começar liga: progressão confortável, bom custo-benefício no early game e escalonamento forte no endgame com poison/chaos.</p>
+      <div class="badges">
+        <span class="badge ok">Classe: Witch</span>
+        <span class="badge ok">Ascendancy: Necromancer</span>
+        <span class="badge">Main Skill: Summon Raging Spirit</span>
+        <span class="badge">Meta: Mirage League Start</span>
+      </div>
+    </section>
 
-      <article class="card span-5">
-        <h2>Checklist rápido</h2>
-        <ul>
-          <li>Cap elemental resistance em <strong>75%+</strong> ao final da campanha.</li>
-          <li>Priorizar atributos em gear: <strong>STR/DEX</strong> para requirements de gem.</li>
-          <li>Concluir labs (1 a 3) antes de pressionar mapas altos.</li>
-          <li>Usar base de Armadura + Energy Shield para facilitar cores.</li>
-          <li>Manter frascos e links atualizados a cada ato.</li>
-        </ul>
-      </article>
+    <section class="tabs" aria-label="Guia por seções">
+      <div class="tab-list" role="tablist" aria-label="Navegação">
+        <button class="tab-btn" role="tab" aria-selected="true" aria-controls="campanha" id="tab-campanha">Campanha</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="gems" id="tab-gems">Skill Gems</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="gear" id="tab-gear">Equipamentos</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="ag" id="tab-ag">AG & Spectres</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="endgame" id="tab-endgame">Endgame</button>
+      </div>
 
-      <article class="card">
-        <h2>Skill Gems por fase</h2>
-        <div class="columns">
-          <section class="mini">
-            <h3>Ato 1–2 (base)</h3>
+      <article class="tab-panel active" role="tabpanel" id="campanha" aria-labelledby="tab-campanha">
+        <div class="grid two">
+          <section class="card">
+            <h3>Ato 1–2</h3>
             <ul>
-              <li><strong>SRS + Ruthless</strong> (depois trocar para Splash/Minion Damage)</li>
-              <li><strong>Holy Flame Totem + Combustion</strong></li>
-              <li>Mobilidade: Frostblink (ou Flame Dash)</li>
-              <li>Utilitárias: Clarity, Shield Charge, Vitality (opcional)</li>
-              <li>Subir Desecrate em slot secundário no Ato 2</li>
+              <li>Início: Rolling Magma, migrando para SRS cedo.</li>
+              <li>Suporte de leveling: Holy Flame Totem + Combustion.</li>
+              <li>Mobilidade: Frostblink (ou Flame Dash).</li>
+              <li>Matar todos os bandidos no Ato 2.</li>
             </ul>
           </section>
-
-          <section class="mini">
-            <h3>Ato 3–4 (estabilização)</h3>
+          <section class="card">
+            <h3>Ato 3–4</h3>
             <ul>
-              <li>Auras: Purity of Elements + Determination</li>
-              <li>Curse: Elemental Weakness</li>
-              <li><strong>SRS + Unleash + Multistrike + Chance to Poison</strong></li>
-              <li>Golems: Stone Golem / Chaos Golem + Feeding Frenzy</li>
-              <li>Ao pegar Eldritch Battery, ajustar mana reservation (remover Clarity)</li>
-            </ul>
-          </section>
-
-          <section class="mini">
-            <h3>Mapas iniciais</h3>
-            <ul>
-              <li>Setup principal de SRS em 4L/5L com foco em dano de minion.</li>
-              <li>Arcanist/utility setup com Desecrate + Offering + Curse para bosses.</li>
-              <li>Guardar Minion Damage para quando fechar 5L/6L apropriado.</li>
-            </ul>
-          </section>
-
-          <section class="mini">
-            <h3>Transição poison/chaos</h3>
-            <ul>
-              <li>Com <strong>The Covenant</strong>, migrar links para escala de chaos.</li>
-              <li><strong>United in Dream</strong> ajuda a fechar chance alta de poison.</li>
-              <li>Ajustar aura/reservation conforme colar e passivas disponíveis.</li>
+              <li>Ativar Purity of Elements e Determination quando possível.</li>
+              <li>Ajustar atributos (DEX/STR) no gear para requisitos.</li>
+              <li>Pegar Unleash e preparar links para transição.</li>
+              <li>Entrar no Lab 1 no timing seguro.</li>
             </ul>
           </section>
         </div>
       </article>
 
-      <article class="card span-7">
-        <h2>Equipamentos recomendados (League Start → Endgame)</h2>
-        <h3>Prioridade de upgrades</h3>
-        <ul>
-          <li><strong>Rumi's Concoction</strong> (sobrevivência com block).</li>
-          <li><strong>The Covenant</strong> (salto forte de dano chaos em minions).</li>
-          <li><strong>United in Dream</strong> (sinergia de poison no SRS).</li>
-          <li><strong>Aul's Uprising</strong> (versão de aura viável no orçamento inicial e upgrade depois).</li>
-          <li><strong>Progenesis</strong> (upgrade de alto custo para suavizar conteúdo difícil).</li>
-        </ul>
-
-        <h3>Craft básico sugerido</h3>
-        <ul>
-          <li><strong>Botas:</strong> base fraturada com chaos res + essence para avoid ailments + movimento.</li>
-          <li><strong>Luva:</strong> base fraturada (vida/res) + essence de minion damage.</li>
-          <li><strong>Escudo:</strong> base fraturada com spell block + essence para block/avoid ailments.</li>
-        </ul>
-      </article>
-
-      <article class="card span-5">
-        <h2>Animate Guardian e Spectres</h2>
-        <h3>Animate Guardian (setup prático)</h3>
-        <ul>
-          <li>Weapon: Dying Breath</li>
-          <li>Helmet: Leer Cast</li>
-          <li>Body: Belly of the Beast → Doppelgänger Guise</li>
-          <li>Boots: Windscream</li>
-          <li>Gloves: Asenath's Gentle Touch</li>
-        </ul>
-        <h3>Spectres úteis</h3>
-        <ul>
-          <li>Stygian Silverback (frenzy charges)</li>
-          <li>Host Chieftain (power charges)</li>
-          <li>Arena Master (speed buffs)</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h2>Progressão por atos (resumo operacional)</h2>
-        <div class="columns">
-          <section class="mini">
-            <h3>Ato 1</h3>
-            <p class="muted">Comece com Rolling Magma, migre para SRS cedo, mantenha Holy Flame Totem para suporte de dano no leveling inicial.</p>
+      <article class="tab-panel" role="tabpanel" id="gems" aria-labelledby="tab-gems">
+        <div class="grid two">
+          <section class="card">
+            <h3>Core (early)</h3>
+            <ul>
+              <li>SRS + Melee Splash + Minion Damage</li>
+              <li>Holy Flame Totem + Combustion</li>
+              <li>Clarity (remover após Eldritch Battery)</li>
+              <li>Shield Charge + Faster Attacks</li>
+            </ul>
           </section>
-          <section class="mini">
-            <h3>Ato 2</h3>
-            <p class="muted">Pegar Desecrate, preparar Tempest Shield e matar todos os bandidos conforme plano da build.</p>
-          </section>
-          <section class="mini">
-            <h3>Ato 3</h3>
-            <p class="muted">Ativar Purity/Determination quando a reserva permitir; buscar soluções de DEX para requisitos.</p>
-          </section>
-          <section class="mini">
-            <h3>Ato 4+</h3>
-            <p class="muted">Entrar no setup com Unleash e preparar transição gradual para mapas/endgame com foco em resistências e links.</p>
+          <section class="card">
+            <h3>Core (mid/end)</h3>
+            <ul>
+              <li>SRS + Unleash + Multistrike + Chance to Poison</li>
+              <li>Desecrate + Offering + Curse setup para boss</li>
+              <li>Determination + Purity of Elements</li>
+              <li>Stone/Chaos Golem + Feeding Frenzy</li>
+            </ul>
           </section>
         </div>
       </article>
 
-      <article class="card">
-        <h2>Fontes de pesquisa</h2>
-        <ul>
-          <li><a href="https://pobb.in/tdu-nwzLWo3Q" target="_blank" rel="noopener noreferrer">PoB (pobb.in/tdu-nwzLWo3Q)</a></li>
-          <li><a href="https://poe.ninja/poe1/pob/7e5ae" target="_blank" rel="noopener noreferrer">poe.ninja profile (7e5ae)</a></li>
-        </ul>
-        <p class="muted">Nota: esta página consolida e organiza o material para uso prático durante a liga; ajuste fino de números/links pode variar conforme patch e economia.</p>
+      <article class="tab-panel" role="tabpanel" id="gear" aria-labelledby="tab-gear">
+        <div class="grid two">
+          <section class="card">
+            <h3>Prioridade de upgrades</h3>
+            <ul>
+              <li>Rumi's Concoction</li>
+              <li>The Covenant</li>
+              <li>United in Dream</li>
+              <li>Aul's Uprising (versão budget → ideal)</li>
+              <li>Progenesis (luxo/high budget)</li>
+            </ul>
+          </section>
+          <section class="card">
+            <h3>Craft base</h3>
+            <ul>
+              <li>Boots: chaos res fraturada + avoid ailments</li>
+              <li>Gloves: base com vida/res + essence minion dmg</li>
+              <li>Shield: spell block fraturado + essência de block</li>
+              <li>Sempre manter res capadas (75%+)</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="tab-panel" role="tabpanel" id="ag" aria-labelledby="tab-ag">
+        <div class="grid two">
+          <section class="card">
+            <h3>Animate Guardian</h3>
+            <ul>
+              <li>Weapon: Dying Breath</li>
+              <li>Helmet: Leer Cast</li>
+              <li>Body: Belly of the Beast → Doppelgänger Guise</li>
+              <li>Boots: Windscream</li>
+              <li>Gloves: Asenath's Gentle Touch</li>
+            </ul>
+          </section>
+          <section class="card">
+            <h3>Spectres úteis</h3>
+            <ul>
+              <li>Stygian Silverback (frenzy charges)</li>
+              <li>Host Chieftain (power charges)</li>
+              <li>Arena Master (buff de velocidade)</li>
+              <li>Versões “perfect” conforme orçamento/mercado</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="tab-panel" role="tabpanel" id="endgame" aria-labelledby="tab-endgame">
+        <section class="card">
+          <h3>Plano de progressão</h3>
+          <ul>
+            <li>Finalizar campanha com labs em dia.</li>
+            <li>Mapas iniciais: estabilidade defensiva + links eficientes.</li>
+            <li>Transição gradual para poison/chaos com The Covenant.</li>
+            <li>Fechar upgrades caros por ordem de impacto/custo.</li>
+            <li>Ajustar setup conforme patch e economia da liga.</li>
+          </ul>
+        </section>
+        <section class="card" style="margin-top:16px">
+          <h3>Fontes</h3>
+          <ul>
+            <li><a href="https://pobb.in/tdu-nwzLWo3Q" target="_blank" rel="noopener noreferrer">PoB referência</a></li>
+            <li><a href="https://poe.ninja/poe1/pob/7e5ae" target="_blank" rel="noopener noreferrer">poe.ninja referência</a></li>
+          </ul>
+          <p class="muted">Dados consolidados em formato operacional para uso em gameplay. Ajuste fino pode variar por patch/hotfix.</p>
+        </section>
       </article>
     </section>
 
     <footer>
-      Guia preparado para consulta rápida em desktop e mobile • atualizado para League Start Mirage.
+      PoE1 Witch SRS Guide • v2 com abas interativas • mobile + desktop.
     </footer>
   </main>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const target = tab.getAttribute('aria-controls');
+
+        tabs.forEach((t) => t.setAttribute('aria-selected', 'false'));
+        tab.setAttribute('aria-selected', 'true');
+
+        panels.forEach((p) => p.classList.remove('active'));
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
