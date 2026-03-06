@@ -1,0 +1,4 @@
+ssh:
+  owner: "linnuz@gmail.com"
+  public_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINsammOMA04KTm65i/822IlUAkOyf0Wqymenyt1ma10e linnuz@gmail.com"
+  note: "Public key only (safe to share). Do NOT store private keys in repo."
