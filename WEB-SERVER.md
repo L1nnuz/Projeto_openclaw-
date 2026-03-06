@@ -56,9 +56,12 @@ Todos habilitados no boot e em estado `active`.
 - Certificado configurado para IP `74.163.240.107`
 - Tipo: **self-signed** (navegador exibirá aviso até você confiar manualmente)
 - HTTP (80/8080) forçado para HTTPS (443)
+- Headers de hardening habilitados: HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy
 
 ## Restrição do phpMyAdmin
-- `/phpmyadmin` liberado apenas para: `127.0.0.1`, `::1`, `74.163.240.107`
+- Corrigido o problema de exposição de código-fonte PHP no endpoint `/phpmyadmin`
+- `/phpmyadmin` executa via PHP-FPM corretamente
+- Acesso permitido apenas para: `127.0.0.1`, `::1`, `74.163.240.107`
 - Demais origens recebem `403 Forbidden`
 
 ## Firewall
