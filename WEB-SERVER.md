@@ -45,6 +45,8 @@ Todos habilitados no boot e em estado `active`.
 - `http://74.163.240.107:8080/` → redireciona para HTTPS
 - `https://74.163.240.107/` (certificado self-signed)
 - `https://74.163.240.107/phpmyadmin/` (restrito por allowlist)
+- `http://alicestudio.art` → redireciona para `https://alicestudio.art`
+- `https://alicestudio.art` (ativo com certificado self-signed até emissão Let's Encrypt)
 
 ## Banco criado (aplicação)
 - Database: `openclaw_app`
@@ -57,6 +59,7 @@ Todos habilitados no boot e em estado `active`.
 - Tipo: **self-signed** (navegador exibirá aviso até você confiar manualmente)
 - HTTP (80/8080) forçado para HTTPS (443)
 - Headers de hardening habilitados: HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy
+- Tentativa de emissão Let's Encrypt para `alicestudio.art` e `www.alicestudio.art` falhou por validação em IPv6 (registro AAAA apontando para outro host). Necessário ajustar DNS AAAA antes de nova emissão.
 
 ## Restrição do phpMyAdmin
 - Corrigido o problema de exposição de código-fonte PHP no endpoint `/phpmyadmin`
